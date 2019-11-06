@@ -2,7 +2,9 @@
 
 ## Learning Goals
 
-## Outline
+## Lesson
+
+<iframe width="100%" height="720" src="https://www.youtube.com/embed/VdJqevchJQs?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
 + Hi folks, it's Ian from Flatiron School. In this video, we're going to look at navigated nested data structures. By the end of this video, you should be able to:
   + Explain why nested data structures are useful
   + Use bracket notation to access data in a nested structure
@@ -260,4 +262,4 @@ character_height("C-3PO", star_wars_data) #=> 167
   + We talked about why nested data is useful - it lets us write complex interactions with robust, real-life data sources and to process more data than we as humans could
   + We used bracket notation to access data in our nested structure here with the star wars example, such as the top level keys, plus results on each individual character
   + And we used some basic ruby methods to answer questions about a given list of data - like each and find. We could do way more complex stuff as well
-+ Thanks so much for watching - happy coding! 
++ Thanks so much for watching - happy coding!
