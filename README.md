@@ -5,6 +5,7 @@
 ## Lesson
 
 <iframe width="100%" height="720" src="https://www.youtube.com/embed/VdJqevchJQs?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+
 + Hi folks, it's Ian from Flatiron School. In this video, we're going to look at navigated nested data structures. By the end of this video, you should be able to:
   + Explain why nested data structures are useful
   + Use bracket notation to access data in a nested structure
