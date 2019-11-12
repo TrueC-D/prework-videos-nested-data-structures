@@ -10,10 +10,10 @@
 <iframe width="100%" height="720" src="https://www.youtube.com/embed/VdJqevchJQs?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 + Hi folks, it's Ian from Flatiron School. In this video, we're going to look at navigated nested data structures. By the end of this video, you should be able to:
-  + Explain why nested data structures are useful
-  + Use bracket notation to access data in a nested structure
-  + Use some basic ruby methods to answer questions about a given list of data
-+ So let's get started. As I mentioned, in this video we're going to explore a deeply nested data structure. To do this, we're going to use some data that I pulled from an API. API stands for Application Programming Interface
+  + Explain why nested data structures are useful.
+  + Use bracket notation to access data in a nested structure.
+  + Use some basic ruby methods to answer questions about a given list of data.
++ So let's get started. As I mentioned, in this video we're going to explore a deeply nested data structure. To do this, we're going to use some data that I pulled from an API. API stands for Application Programming Interface.
 + This basically just means that if I have an application, say Twitter for example, I might build a way for users to interact with the data of my app, but I might also have a way for other programs to interact with my app.
 + Usually, that means that, hey, if you visit a certain URL, we'll give you a nested data structure back of the data that you want.
 + So, for example, if we visit twitter.com/api/tweets, that might give us essentially a big hash of information back. There's a bit more to it than that, but we don't need to go over that for right now. For right now, it's enough to just know that APIs can give us back data that we might want.
@@ -22,12 +22,12 @@
 + I'm going to use a gem called `pry`. Pry let's us pause our program mid-run, and gives us access to all the local variables or methods currently in scope.
 + To use it, I'll `gem install pry`, and then at the top of my file here, I can `require 'pry'`
 + Now, I can pause my program by using `binding.pry` anywhere in the code, and we'll stop there.
-+ When I run this now, I can look at `star_wars_data` and see that it's this giant hash. Great.
-+ So let's start exploring. The first thing I want to is see - what are the top level keys of this hash? I can do that using a method called `keys`
++ When I run this now, I can look at `star_wars_data` and see that it's this giant hash.
++ So let's start exploring. The first thing I want to is see - what are the top level keys of this hash? I can do that using a method called `keys`.
 ```ruby
 star_wars_data.keys #=> ["count", "next", "previous", "results"]
 ```
-+ Great - I can see that there are actually only four top level keys to this data structure - let's check each one out
++ Great - I can see that there are actually only four top level keys to this data structure - let's check each one out.
 ```ruby
 star_wars_data["count"] #=> 87
 ```
@@ -37,13 +37,13 @@ star_wars_data["next"] #=> "https://swapi.co/api/people/?page=2"
 star_wars_data["previous"] #=> nil
 ```
 + This returns to a string of a URL - so this API was setup in such a way that, all the data was split over several URLs worth. That way, you know how many total to expect and how to get the next piece of data.
-+ We won't worry too much about that right now, but this is just so you know the types of things you might see at the top level of a data structure like this, sometimes it's just metadata, or data about the data.
++ We won't worry too much about that right now, but this is just so you know the types of things you might see at the top level of a data. structure like this, sometimes it's just metadata, or data about the data.
 + So finally, let's look at results.
 ```ruby
 star_wars_data["results"]
 ```
 + So this we can see is a big old data structure of some sort, and it's kind of hard to look at it to know what it is.
-+ I'm just going to ask it by using the `class` method
++ I'm just going to ask it by using the `class` method.
 ```ruby
 star_wars_data["results"].class #=> Array
 ```
@@ -51,7 +51,7 @@ star_wars_data["results"].class #=> Array
 ```ruby
 star_wars_data["results"].length #=> 10
 ```
-+ And now let's look at the first item
++ And now let's look at the first item.
 ```ruby
 star_wars_data[:results].first #=>
 {"name"=>"Luke Skywalker",
@@ -76,7 +76,7 @@ star_wars_data[:results].first #=>
  "edited"=>"2014-12-20T21:17:56.891000Z",
  "url"=>"https://swapi.co/api/people/1/"} -->
  ```
-+ And then the second item
++ And then the second item.
 
 ```ruby
 star_wars_data["results"][1]
@@ -115,10 +115,10 @@ def print_names(data)
 end
 # This method should print all of the names of the characters
 ```
-+ Given our initial hash, we can break this down into a couple of steps
-  + Get the array of characters
-  + Iterate over each character
-  + print the name of that character
++ Given our initial hash, we can break this down into a couple of steps:
+  + Get the array of characters.
+  + Iterate over each character.
+  + Print the name of that character.
 ```ruby
 def print_names(data)
   # Get the array of characters
@@ -127,7 +127,7 @@ def print_names(data)
 end
 # This method should print all of the names of the characters
 ```
-+ First, throw a pry in this method so we can kind of play around with it while it's called
++ First, throw a pry in this method so we can kind of play around with it when it's called.
 ```ruby
 def print_names(data)
   binding.pry
@@ -143,7 +143,7 @@ print_names(star_wars_data)
 ```ruby
 characters = data["results"]
 ```
-+ That seems to work, so I'll copy and paste that line into my method
++ That seems to work, so I'll copy and paste that line into my method.
 ```ruby
 def print_names(data)
   binding.pry
@@ -156,8 +156,8 @@ end
 print_names(star_wars_data)
 # This method should print all of the names of the characters
 ```
-+ Next, let's iterate over our list of characters using the .each method. So characters.each do and then between the pipes, we'll call this "character"
-+ I'm also going to move my pry into the loop so we can see what the character looks like
++ Next, let's iterate over our list of characters using the .each method. So characters.each do and then between the pipes, we'll call this "character".
++ I'm also going to move my pry into the loop so we can see what the character looks like.
 ```ruby
 def print_names(data)
   # Get the array of characters
@@ -172,8 +172,8 @@ end
 print_names(star_wars_data)
 # This method should print all of the names of the characters
 ```
-+ If I look at the character on the first pass through - I see it's Luke Skywalker. I can go to the next pass of my loop by typing `exit`
-+ Cool, second pass through is C-3PO. Now, I can access the name by doing `character["name"]` So let's do a `puts character["name"]`
++ If I look at the character on the first pass through - I see it's Luke Skywalker. I can go to the next pass of my loop by typing `exit`.
++ Cool, second pass through is C-3PO. Now, I can access the name by doing `character["name"]` So let's do a `puts character["name"]`.
 + And that works well.
 + Now, to get out of my pry, I can type `exit!` and that will stop my loop completely since I feel confident about what we have now.
 ```ruby
@@ -206,7 +206,7 @@ end
 # This method should return the height of a character given their name
 character_height("C-3PO", star_wars_data) #=> 167
 ```
-+ To start out, let's get the characters out of the data structure and then iterate over it using `.each`
++ To start out, let's get the characters out of the data structure and then iterate over it using `.each`.
 ```ruby
 def character_height(name, star_wars_data)
   # get the array of characters
@@ -234,7 +234,7 @@ def character_height(name, star_wars_data)
 end
 ```
 + And now we see that this works great. Now, we're sort of doing these two steps in one loop here - that is, we're finding the character and then immediately returning the height. We can use a higher level iterator for this to separate that out. I'm going to go back to my original psuedo code and re-word it slightly.
-+ I'm going to be a bit more abstract and just say we should "find the character with the given name"
++ I'm going to be a bit more abstract and just say we should "find the character with the given name".
 ```ruby
 def character_height(name, star_wars_data)
   # get the array of characters
@@ -263,7 +263,7 @@ character_height("C-3PO", star_wars_data) #=> 167
 + This way, we can just return the height for the character we found.
 + So there's a bunch of other stuff we can do like this, you can find characters by value, or sort them to find the tallest character or anything like that.
 + We're just at the tip of the iceberg here, but this is a good introduction to using nested data, so I think we'll go ahead and stop here. So just to recap:
-  + We talked about why nested data is useful - it lets us write complex interactions with robust, real-life data sources and to process more data than we as humans could
-  + We used bracket notation to access data in our nested structure here with the star wars example, such as the top level keys, plus results on each individual character
-  + And we used some basic ruby methods to answer questions about a given list of data - like each and find. We could do way more complex stuff as well
+  + We talked about why nested data is useful - it lets us write complex interactions with robust, real-life data sources and to process more data than we as humans could.
+  + We used bracket notation to access data in our nested structure here with the star wars example, such as the top level keys, plus results on each individual character.
+  + And we used some basic ruby methods to answer questions about a given list of data - like each and find. We could do way more complex stuff as well.
 + Thanks so much for watching - happy coding!
