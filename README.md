@@ -1,6 +1,9 @@
 # Nested Data Structures
 
 ## Learning Goals
++ Explain why nested data structures are useful
++ Use bracket notation to access data in a nested structure
++ Use some basic Ruby methods to answer questions about a given list of data
 
 ## Lesson
 
